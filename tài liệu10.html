@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bí Kíp Toàn Tập Tin 10 - FINAL Giữa Kì 2 - PIT CLASS</title>
+    <style>
+        :root { --primary: #1e3c72; --secondary: #e67e22; --danger: #e74c3c; --success: #27ae60; --dark: #2c3e50; --light: #ecf0f1; --highlight: #f1c40f; }
+        * { box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f8f9fa; color: var(--dark); line-height: 1.7; margin: 0; padding: 0; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+        
+        /* Header & Branding */
+        .header { background: linear-gradient(135deg, #1e3c72, #2a5298); color: white; padding: 40px 20px; text-align: center; border-radius: 0 0 25px 25px; box-shadow: 0 6px 20px rgba(0,0,0,0.15); border-bottom: 5px solid var(--secondary); }
+        .header h1 { margin: 0; font-size: 32px; text-transform: uppercase; letter-spacing: 1.5px; text-shadow: 2px 2px 4px rgba(0,0,0,0.4); }
+        .header p { font-size: 18px; opacity: 0.9; margin-top: 10px; }
+        
+        .branding { background: #fff8e1; color: #d35400; padding: 18px; border-radius: 10px; font-weight: bold; margin: 30px 0; text-align: center; border: 2px dashed var(--secondary); font-size: 16px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        
+        /* Table of Contents */
+        .toc { background: white; padding: 20px; border-radius: 10px; border-left: 5px solid var(--success); box-shadow: 0 2px 8px rgba(0,0,0,0.05); margin-bottom: 30px; }
+        .toc h3 { margin-top: 0; color: var(--success); }
+        .toc ul { list-style-type: none; padding-left: 0; }
+        .toc li { margin-bottom: 8px; }
+        .toc a { text-decoration: none; color: var(--primary); font-weight: bold; }
+        .toc a:hover { color: var(--secondary); text-decoration: underline; }
+
+        /* Sections */
+        .section-title { color: white; background: var(--primary); padding: 12px 25px; border-radius: 8px; margin-top: 50px; text-transform: uppercase; font-size: 22px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); display: inline-block; width: 100%; }
+        .card { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.08); margin-bottom: 30px; border-top: 4px solid var(--primary); }
+        
+        /* Feynman Analogy */
+        .analogy { background: #e8f4fd; padding: 15px 20px; border-left: 4px solid var(--primary); font-style: italic; margin-bottom: 20px; border-radius: 0 8px 8px 0; }
+        .analogy::before { content: "💡 BẢN CHẤT (DỄ HIỂU): "; font-weight: bold; color: var(--primary); font-style: normal; }
+
+        /* Detail Boxes */
+        .detail-box { margin: 20px 0; }
+        .detail-title { font-weight: bold; color: #c0392b; font-size: 20px; margin-bottom: 12px; display: flex; align-items: center; border-bottom: 2px solid #eee; padding-bottom: 5px; }
+        .detail-title::before { content: "🎯"; margin-right: 8px; }
+        
+        /* Code Blocks */
+        code { font-family: 'Consolas', monospace; background: #ffebee; color: #c0392b; padding: 2px 6px; border-radius: 4px; font-weight: bold; font-size: 15px; }
+        .code-block { background: #282c34; color: #abb2bf; padding: 20px; border-radius: 10px; overflow-x: auto; font-family: 'Consolas', monospace; font-size: 16px; margin: 15px 0; border-left: 5px solid #61afef; box-shadow: inset 0 0 10px rgba(0,0,0,0.5); }
+        .comment { color: #7f848e; font-style: italic; }
+        .keyword { color: #c678dd; }
+        .string { color: #98c379; }
+        .function { color: #61afef; }
+        .number { color: #d19a66; }
+        
+        /* Warning Boxes */
+        .warning { background: #fff3f3; border: 2px solid var(--danger); padding: 20px; margin: 25px 0; border-radius: 10px; position: relative; box-shadow: 0 4px 6px rgba(231, 76, 60, 0.1); }
+        .warning-label { position: absolute; top: -15px; left: 20px; background: var(--danger); color: white; padding: 5px 15px; font-weight: bold; border-radius: 20px; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+        .warning ul { margin-top: 15px; padding-left: 20px; }
+        .warning li { margin-bottom: 10px; font-weight: 500; color: #900; }
+
+        /* Tables */
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+        th, td { border: 1px solid #e0e0e0; padding: 12px 15px; text-align: left; }
+        th { background-color: var(--primary); color: white; font-size: 16px; }
+        tr:nth-child(even) { background-color: #f9f9f9; }
+        tr:hover { background-color: #f1f2f6; }
+
+        /* Highlighting */
+        .highlight { background-color: var(--highlight); padding: 0 4px; border-radius: 3px; font-weight: bold; color: var(--dark); }
+
+        footer { text-align: center; margin-top: 60px; padding: 30px; color: #7f8c8d; font-size: 15px; border-top: 1px solid #ddd; }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>BÍ KÍP TOÀN TẬP TIN HỌC 10 - FINAL</h1>
+        <p>Phiên bản Ultimate v3.0 - Vét Sạch Mọi Ngóc Ngách Đề Thi</p>
+    </div>
+
+    <div class="container">
+        <div class="branding">
+            (Tài liệu được biên soạn bởi Thầy HePing (ID:DHB16285), Tài Liệu Độc Quyền Của PIT CLASS ĐƯỢC BIÊN SOẠN DÀNH TẶNG CHO CÁC BẠN HỌC SINH LỚP 10 2010 ÔN THI GIỮA KÌ 2).
+        </div>
+
+        <div class="toc">
+            <h3>📌 DANH MỤC ÔN TẬP TỐC TỐC (Click để nhảy đến)</h3>
+            <ul>
+                <li><a href="#phan0">KHỞI ĐỘNG: Toán Tử & Biểu Thức Logic (Rất hay sai)</a></li>
+                <li><a href="#phan1">CHUYÊN ĐỀ 1: Cấu Trúc Rẽ Nhánh (IF - ELIF - ELSE)</a></li>
+                <li><a href="#phan2">CHUYÊN ĐỀ 2: Cấu Trúc Lặp (FOR - WHILE) & Break/Continue</a></li>
+                <li><a href="#phan3">CHUYÊN ĐỀ 3: Chương Trình Con & Thư Viện Math</a></li>
+                <li><a href="#phan4">CHUYÊN ĐỀ 4: Vét Cạn Xử Lý Xâu Kí Tự (String Ultimate)</a></li>
+            </ul>
+        </div>
+
+        <h2 class="section-title" id="phan0">KHỞI ĐỘNG: TOÁN TỬ & LOGIC (NỀN TẢNG)</h2>
+        <div class="card">
+            <div class="analogy">
+                Muốn lập trình đúng, phải biết phân biệt các công cụ. Giống như chia bánh, có lúc chia lấy phần nguyên vẹn, có lúc chỉ lấy phần thừa.
+            </div>
+            
+            <div class="detail-box">
+                <div class="detail-title">1. Phân biệt cực mạnh 3 phép chia (/, //, %)</div>
+                <table>
+                    <tr>
+                        <th>Phép toán</th>
+                        <th>Ý nghĩa</th>
+                        <th>Kết quả ví dụ</th>
+                    </tr>
+                    <tr>
+                        <td><code>/</code> (Chia thực)</td>
+                        <td>Chia bình thường ra số thập phân.</td>
+                        <td><code>10 / 3</code> &rarr; <span class="highlight">3.333333</span></td>
+                    </tr>
+                    <tr>
+                        <td><code>//</code> (Chia nguyên)</td>
+                        <td>Chỉ lấy phần chẵn, vứt bỏ phần thập phân.</td>
+                        <td><code>10 // 3</code> &rarr; <span class="highlight">3</span> (Kiểu số nguyên)</td>
+                    </tr>
+                    <tr>
+                        <td><code>%</code> (Chia dư)</td>
+                        <td>Lấy phần dư thừa không chia hết được nữa.</td>
+                        <td><code>10 % 3</code> &rarr; <span class="highlight">1</span> (Thường dùng kiểm tra chẵn lẻ)</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="detail-box">
+                <div class="detail-title">2. Biểu thức Logic (AND / OR / NOT)</div>
+                <p>Biểu thức luôn trả về giá trị kiểu <code>bool</code> (True hoặc False).</p>
+                <ul>
+                    <li><code>and</code>: Phải <strong>CẢ 2 CÙNG ĐÚNG</strong> thì mới ra True. <em>(VD: Đúng and Sai &rarr; Sai)</em></li>
+                    <li><code>or</code>: Chỉ cần <strong>1 TRONG 2 ĐÚNG</strong> là ra True. <em>(VD: Đúng or Sai &rarr; Đúng)</em></li>
+                    <li><code>not</code>: Đảo ngược sự thật. <em>(VD: not True &rarr; False)</em></li>
+                </ul>
+            </div>
+        </div>
+
+        <h2 class="section-title" id="phan1">CHUYÊN ĐỀ 1: RẼ NHÁNH (IF - ELIF - ELSE)</h2>
+        <div class="card">
+            <div class="detail-box">
+                <div class="detail-title">1. Cú pháp chuẩn & Lệnh lồng nhau</div>
+                <div class="code-block">
+<span class="keyword">if</span> diem >= <span class="number">8.0</span>:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print(<span class="string">"Giỏi"</span>) <span class="comment"># Bắt buộc thụt lề</span><br>
+<span class="keyword">elif</span> diem >= <span class="number">6.5</span>: <span class="comment"># Dùng khi có từ 3 trường hợp trở lên</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;print(<span class="string">"Khá"</span>)<br>
+<span class="keyword">else</span>:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span> diem < <span class="number">0</span>: <span class="comment"># Lệnh if lồng bên trong else (Nested if)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(<span class="string">"Lỗi nhập"</span>)
+                </div>
+            </div>
+
+            <div class="warning">
+                <div class="warning-label">BẪY CHẾT NGƯỜI (RẼ NHÁNH)</div>
+                <ul>
+                    <li>So sánh BẰNG NHAU bắt buộc dùng <code>==</code>. Ghi <code>if x = 5:</code> là <strong>LỖI CÚ PHÁP NGAY LẬP TỨC</strong>.</li>
+                    <li>Quên dấu hai chấm <code>:</code> ở cuối dòng <code>if</code>, <code>elif</code>, <code>else</code>.</li>
+                    <li>Lỗi thụt lề (IndentationError): Python phân biệt khối lệnh bằng độ lùi lề. Thụt ra thụt vào không đều tay là chương trình sập!</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2 class="section-title" id="phan2">CHUYÊN ĐỀ 2: CẤU TRÚC LẶP & ĐIỀU KHIỂN</h2>
+        <div class="card">
+            <div class="detail-box">
+                <div class="detail-title">1. Vét sạch hàm range() trong vòng lặp FOR</div>
+                <p>Biến đếm (VD: <code>i</code>) luôn thuộc kiểu <strong>số nguyên (int)</strong>.</p>
+                <table>
+                    <tr>
+                        <th>Cấu trúc</th>
+                        <th>Chạy thực tế (Rất hay lừa)</th>
+                    </tr>
+                    <tr>
+                        <td><code>range(n)</code></td>
+                        <td>Chạy từ <strong>0</strong> đến <strong>n - 1</strong>. (Lặp đúng n lần).</td>
+                    </tr>
+                    <tr>
+                        <td><code>range(a, b)</code></td>
+                        <td>Chạy từ <strong>a</strong> đến <strong>b - 1</strong>. (Tuyệt đối không chạy tới b).</td>
+                    </tr>
+                    <tr>
+                        <td><code>range(a, b, step)</code></td>
+                        <td>Bước nhảy <code>step</code>. VD: <code>range(1, 10, 2)</code> sẽ ra 1, 3, 5, 7, 9. <br>VD: <code>range(5, 0, -1)</code> đếm ngược 5, 4, 3, 2, 1.</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="detail-box">
+                <div class="detail-title">2. Vòng lặp WHILE & Lệnh ngắt (Break/Continue)</div>
+                <p>WHILE lặp chừng nào điều kiện vẫn <code>True</code>.</p>
+                <ul>
+                    <li><code>break</code>: Phá vỡ, <strong>thoát ngay lập tức</strong> ra khỏi vòng lặp toàn cục.</li>
+                    <li><code>continue</code>: <strong>Bỏ qua</strong> các lệnh còn lại của vòng lặp hiện tại, quay lên chạy vòng lặp kế tiếp.</li>
+                </ul>
+            </div>
+
+            <div class="warning">
+                <div class="warning-label">BẪY TỬ THẦN (VÒNG LẶP)</div>
+                <ul>
+                    <li><strong>Lặp vô hạn (Infinite Loop):</strong> Trong vòng <code>while</code>, nếu quên câu lệnh tăng/giảm biến đếm (VD: <code>i = i + 1</code>), máy sẽ chạy mãi không dừng.</li>
+                    <li><strong>Biên của FOR:</strong> Đề hỏi <code>for i in range(1, 5)</code>, <code>i</code> thoát ra bằng mấy? Đáp án là sau khi lặp xong giá trị <code>4</code>!</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2 class="section-title" id="phan3">CHUYÊN ĐỀ 3: CHƯƠNG TRÌNH CON & THƯ VIỆN</h2>
+        <div class="card">
+            <div class="analogy">
+                Chương trình con (Hàm) giống như cái máy giặt. Em lập trình (def) 1 lần, sau đó cứ gọi máy (gọi hàm), nhét đồ bẩn vào (tham số), nó sẽ trả về đồ sạch (return).
+            </div>
+
+            <div class="detail-box">
+                <div class="detail-title">1. Vòng đời của 1 Hàm</div>
+                <div class="code-block">
+<span class="comment"># 1. KHAI BÁO (TẠO HÀM) - Dùng từ khóa def</span><br>
+<span class="keyword">def</span> <span class="function">KiemTra</span>(x):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span> x > <span class="number">0</span>:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span class="string">"Dương"</span> <span class="comment"># Gặp return là lập tức thoát hàm!</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span class="string">"Âm"</span><br><br>
+<span class="comment"># 2. GỌI HÀM (SỬ DỤNG) - Tuyệt đối không viết chữ def nữa!</span><br>
+kq = KiemTra(<span class="number">5</span>)
+                </div>
+            </div>
+
+            <div class="detail-box">
+                <div class="detail-title">2. Thư viện Toán (math) & Hàm có sẵn</div>
+                <ul>
+                    <li><code>abs(x)</code>: Trị tuyệt đối. <strong>(Là hàm có sẵn, KHÔNG CẦN import math)</strong>.</li>
+                    <li><code>math.sqrt(x)</code>: Căn bậc 2. Bắt buộc <code>import math</code>. Trả về kiểu số thực (float).</li>
+                    <li><code>math.gcd(a, b)</code>: Tìm Ước chung lớn nhất. Bắt buộc <code>import math</code>.</li>
+                </ul>
+            </div>
+
+            <div class="warning">
+                <div class="warning-label">BẪY "ĐÚNG/SAI" (CHƯƠNG TRÌNH CON)</div>
+                <ul>
+                    <li><strong>Bẫy Return:</strong> Bất cứ lệnh nào viết <strong>dưới</strong> lệnh <code>return</code> (cùng cấp thụt lề) đều trở thành lệnh chết (không bao giờ chạy).</li>
+                    <li>Nếu hàm chạy hết mà không có lệnh <code>return</code>, nó mặc định ném ra chữ <code>None</code>.</li>
+                    <li><strong>Phạm vi biến:</strong> Biến khai báo bên trong hàm chỉ sống bên trong hàm đó (biến cục bộ). Ra ngoài gọi sẽ báo lỗi!</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2 class="section-title" id="phan4">CHUYÊN ĐỀ 4: VÉT CẠN XỬ LÝ XÂU KÍ TỰ (ULTIMATE)</h2>
+        <div class="card">
+            <div class="detail-box">
+                <div class="detail-title">1. Bản chất & Cắt xâu (Slicing - CỰC QUAN TRỌNG)</div>
+                <p>Xâu là kiểu dữ liệu <strong>BẤT BIẾN (Immutable)</strong>. Mọi phép cộng, nhân, replace đều tạo ra xâu mới toanh!</p>
+                <p><strong>Chỉ số (Indexing):</strong> Đánh số từ Trái sang Phải bắt đầu từ <code>0</code>. Đánh số từ Phải sang Trái bắt đầu từ <code>-1</code>.</p>
+                <div class="code-block">
+s = <span class="string">"PITCLASS"</span><br>
+<span class="comment"># P  I  T  C  L  A  S  S</span><br>
+<span class="comment"># 0  1  2  3  4  5  6  7   (Chỉ số dương)</span><br>
+<span class="comment">#-8 -7 -6 -5 -4 -3 -2 -1   (Chỉ số âm)</span><br><br>
+print(s[0])   <span class="comment"># Ra chữ "P"</span><br>
+print(s[-1])  <span class="comment"># Ra chữ "S" (kí tự cuối cùng)</span><br>
+print(s[3:8]) <span class="comment"># Slicing: Cắt từ vị trí 3 đến 8-1 (Ra chữ "CLASS")</span>
+                </div>
+            </div>
+
+            <div class="detail-box">
+                <div class="detail-title">2. Bảng vàng các hàm Xâu kí tự (Học thuộc lòng)</div>
+                <table>
+                    <tr>
+                        <th>Hàm / Lệnh</th>
+                        <th>Chức năng KHÔNG THỂ SAI</th>
+                        <th>Ví dụ</th>
+                    </tr>
+                    <tr>
+                        <td><code>len(S)</code></td>
+                        <td>Đếm ĐỘ DÀI xâu (Kể cả dấu cách trắng).</td>
+                        <td><code>len("Tin 10")</code> &rarr; <strong>6</strong></td>
+                    </tr>
+                    <tr>
+                        <td><code>S.find(s1)</code></td>
+                        <td>Tìm vị trí bắt đầu của xâu s1. <br><span class="highlight">Bẫy: KHÔNG THẤY TRẢ VỀ -1 (Không lỗi)</span></td>
+                        <td><code>"PIT".find("X")</code> &rarr; <strong>-1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><code>S.count(s1)</code></td>
+                        <td>Đếm số lần s1 xuất hiện. (Phân biệt HOA/thường)</td>
+                        <td><code>"aaA".count("a")</code> &rarr; <strong>2</strong></td>
+                    </tr>
+                    <tr>
+                        <td><code>S.replace(s1, s2)</code></td>
+                        <td>Thay toàn bộ s1 thành s2. <br><span class="highlight">Bẫy: Biến gốc S không đổi.</span></td>
+                        <td><code>"Tin 10".replace("10", "11")</code> &rarr; <strong>"Tin 11"</strong></td>
+                    </tr>
+                    <tr>
+                        <td><code>in</code></td>
+                        <td>Kiểm tra s1 có nằm trong S không? (Ra True/False)</td>
+                        <td><code>"A" in "PIT"</code> &rarr; <strong>False</strong></td>
+                    </tr>
+                    <tr>
+                        <td><code>+</code> và <code>*</code></td>
+                        <td><code>+</code> dùng để ghép nối. <code>*</code> dùng để nhân bản.</td>
+                        <td><code>"A" + "B"*2</code> &rarr; <strong>"ABB"</strong></td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="warning">
+                <div class="warning-label">BẪY CHÍNH TẢ & ÉP KIỂU</div>
+                <ul>
+                    <li>Không thể cộng một xâu với một số: <code>"A" + 10</code> (BÁO LỖI). Phải ép kiểu thành <code>"A" + str(10)</code>.</li>
+                    <li>Slicing <code>s[a:b]</code> giống y hệt <code>range</code>, nó chỉ cắt đến phần tử <code>b-1</code>.</li>
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+
+    <footer>
+        <p>Chúc tập thể lớp 10 (2010) PIT CLASS vững vàng tâm lý, hạ gục Kì Thi Giữa Kì 2 2026 một cách hoàn hảo!</p>
+        <p><strong>Thầy HePing (ID:DHB16285) luôn đồng hành cùng các em! 🔥</strong></p>
+    </footer>
+
+</body>
+</html>
